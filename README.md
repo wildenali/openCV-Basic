@@ -14,7 +14,4 @@ Belajar opencv dari dasar
 - Type `import cv2`
 - Type `cv2.__version__`
 
-'''
-NB:
-if point no 6 not work, try `$ pip install opencv-contrib-python-headless` or `$ pip install opencv-python`
-'''
+> NB: if point no 6 not work, try `$ pip install opencv-contrib-python-headless` or `$ pip install opencv-python`
