@@ -11,10 +11,12 @@ while (cap.isOpened()):
     ret, frame = cap.read()
 
     # Our operations on the frame come here
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    # result_image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    # result_image = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    result_image = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
     # Displaythe resulting rame
-    cv2.imshow('frame', gray)
+    cv2.imshow('frame', result_image)
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
