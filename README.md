@@ -1,9 +1,17 @@
 # openCV-Basic
 
 Belajar opencv dari dasar
-
-1. Create Virtual Environment namely Env `$ python -m venv Env`
-2. Go to Env `$ Env\Scripts\activate.bat`
+0. Install Virtual Environment
+    - `$ sudo apt-get install python3-pip`
+    - `$ sudo pip3 install virtualenv`
+1. Create Virtual Environment namely Env 
+    - `$ python -m venv Env`
+    or
+    - `$ virtualenv .venv`
+2. Go to Env 
+    - `$ Env\Scripts\activate.bat`
+    or 
+    - `$ source .venvUbuntu/bin/activate`
 3. Check pip list `$ pip list`. If need to upgrade, please upgrade first. `$ python.exe -m pip install --upgrade pip`
 4. Check again `$ pip list`
 5. Install Numpy `$ pip install numpy`. Check again `$ pip list`
