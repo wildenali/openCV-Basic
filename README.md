@@ -25,7 +25,7 @@ Belajar opencv dari dasar
 > NB: if point no 6 not work, try `$ pip install opencv-contrib-python-headless` or `$ pip install opencv-python`.
 
 8. Install matplotlib `$ pip install matplotlib`
-
+9. Install `$ sudo apt install python3-tk` if matplotlib can't show()
 
 
 
