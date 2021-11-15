@@ -3,64 +3,32 @@ import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 
-# https://www.geeksforgeeks.org/find-co-ordinates-of-contours-using-opencv-python/
+# https://www.geeksforgeeks.org/python-bilateral-filtering/
 
 '''
+A bilateral filter is used for smoothening images and reducing noise, while preserving edges.
+This article explains an approach using the averaging filter, while this article provides one using a median filter.
+However, these convolutions often result in a loss of important edge information, since they blur out everything,
+irrespective of it being noise or an edge. To counter this problem, the non-linear bilateral filter was introduced.
+
+
+OpenCV has a function called bilateralFilter() with the following arguments: 
+d: Diameter of each pixel neighborhood.
+sigmaColor: Value of \sigma  in the color space. The greater the value, the colors farther to each other will start to get mixed.
+sigmaSpace: Value of \sigma  in the coordinate space. The greater its value, the more further pixels will mix together, given that their colors lie within the sigmaColor range.
 '''
 
 # Reading image from folder where it is stored
-img2    = cv2.imread('/home/dewatic/Documents/openCV-Basic-with-Python/image_resources/contour_test.jpg')
-font    = cv2.FONT_HERSHEY_COMPLEX
+img    = cv2.imread('/home/dewatic/Documents/openCV-Basic-with-Python/image_resources/contour_test.jpg')
+# Apply bilateral filter with d = 15,
+# sigmaColor = sigmaSpace = 75.
+bilateral = cv2.bilateralFilter(img, 15, 75, 75)
+ 
+# Save the output.
+cv2.imwrite('taj_bilateral.jpg', bilateral)
 
-# Reading same image in another, variable and converting to gray scale.
-img     = cv2.imread('/home/dewatic/Documents/openCV-Basic-with-Python/image_resources/contour_test.jpg', cv2.IMREAD_GRAYSCALE)
-
-# Converting image to a binary image, ( black and white only image).
-_, threshold = cv2.threshold(img, 110, 255, cv2.THRESH_BINARY)
-
-# Detecting contours in image.
-contours, _= cv2.findContours(threshold, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-
-cv2.imshow('Real Image', img2)   
-cv2.imshow('IMREAD_GRAYSCALE', img)
-cv2.imshow('threshold', threshold)
-# print(contours)
-
-# Going through every contours found in the image.
-for cnt in contours:
-    approx = cv2.approxPolyDP(cnt, 0.009 * cv2.arcLength(cnt, True), True)
-
-    # Used to flatted the array containing
-    # the co-ordinates of the vertices.
-    n = approx.ravel()
-    print(n)
-    i = 0
-
-    for j in n:
-        if(i % 2 == 0):
-            x = n[i]
-            y = n[i + 1]
-  
-            # String containing the co-ordinates.
-            string = str(x) + " " + str(y)
-            print(string)
-
-            cv2.imshow('Real Image _2', img2)   
-            cv2.imshow('IMREAD_GRAYSCALE _2', img)
-            cv2.imshow('threshold _2', threshold)
-
-            if(i == 0):
-                # text on topmost co-ordinate.
-                cv2.putText(img2, "Arrow tip", (x, y), font, 0.5, (255, 0, 0))
-            else:
-                # text on remaining co-ordinates.
-                cv2.putText(img2, string, (x, y), font, 0.5, (0, 255, 0))
-        i = i + 1
-    
-
-cv2.imshow('Real Image _3', img2)   
-cv2.imshow('IMREAD_GRAYSCALE _3', img)
-cv2.imshow('threshold _3', threshold)
+cv2.imshow('Real Image _3', img)   
+cv2.imshow('bilateral', bilateral)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
