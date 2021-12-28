@@ -1,10 +1,15 @@
 # openCV-Basic
 
 Belajar opencv dari dasar
-0. Install Virtual Environment
+0. Install Virtual Environment Linux
     - `$ sudo apt-get install python3-pip`
     - `$ sudo pip3 install virtualenv`
-1. Create Virtual Environment namely Env 
+0. Install Virtual Environment Windows
+    - `$ pip install virtualenv`
+    - `$ virtualenv env`
+    - `$ cd env/Script`
+    - `$ activate.bat`
+2. Create Virtual Environment namely Env 
     - `$ python -m venv Env`
     or
     - `$ virtualenv .venv`
