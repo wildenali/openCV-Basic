@@ -1,27 +1,27 @@
 # openCV-Basic
 
 Belajar opencv dari dasar
-0. Install Virtual Environment Linux
+1. Install Virtual Environment Linux
     - `$ sudo apt-get install python3-pip`
     - `$ sudo pip3 install virtualenv`
-0. Install Virtual Environment Windows
+2. Install Virtual Environment Windows
     - `$ pip install virtualenv`
     - `$ virtualenv env`
     - `$ cd env/Script`
     - `$ activate.bat`
-2. Create Virtual Environment namely Env 
+3. Create Virtual Environment namely Env 
     - `$ python -m venv Env`
     or
     - `$ virtualenv .venv`
-2. Go to Env 
+4. Go to Env 
     - `$ Env\Scripts\activate.bat`
     or 
     - `$ source .venvUbuntu/bin/activate`
-3. Check pip list `$ pip list`. If need to upgrade, please upgrade first. `$ python.exe -m pip install --upgrade pip`
-4. Check again `$ pip list`
-5. Install Numpy `$ pip install numpy`. Check again `$ pip list`
-6. Install opencv `$ pip install opencv-contrib-python`
-7. How to check opencv already installed:
+5. Check pip list `$ pip list`. If need to upgrade, please upgrade first. `$ python.exe -m pip install --upgrade pip`
+6. Check again `$ pip list`
+7. Install Numpy `$ pip install numpy`. Check again `$ pip list`
+8. Install opencv `$ pip install opencv-contrib-python`
+9. How to check opencv already installed:
 
 - Type `$ python`
 - Type `import cv2`
@@ -29,8 +29,8 @@ Belajar opencv dari dasar
 
 > NB: if point no 6 not work, try `$ pip install opencv-contrib-python-headless` or `$ pip install opencv-python`.
 
-8. Install matplotlib `$ pip install matplotlib`
-9. Install `$ sudo apt install python3-tk` if matplotlib can't show()
+10. Install matplotlib `$ pip install matplotlib`
+11. Install `$ sudo apt install python3-tk` if matplotlib can't show()
 
 
 
